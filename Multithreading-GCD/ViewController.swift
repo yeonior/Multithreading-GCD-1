@@ -9,11 +9,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var myImageView: UIImageView!
+    @IBOutlet weak var downloadButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        downloadButton.layer.cornerRadius = 15
     }
-
-
+    
+    @IBAction func downloadButtonAction(_ sender: UIButton) {
+        
+    }
 }
 
