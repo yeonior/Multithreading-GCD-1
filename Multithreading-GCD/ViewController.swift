@@ -13,6 +13,8 @@ final class ViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var downloadButton: UIButton!
     
+    private let queue = DispatchQueue.global(qos: .utility)
+    
     private let imageURL = URL(string: "https://images.unsplash.com/photo-1635156219587-879ded59e273?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2742&q=80")!
     
     override func viewDidLoad() {
@@ -21,13 +23,6 @@ final class ViewController: UIViewController {
         downloadButton.layer.cornerRadius = 15
         gearImageView.isHidden = true
         animateGear()
-    }
-    
-    private func getImage(from: URL) {
-        if let data = try? Data(contentsOf: imageURL) {
-            mainImageView.image = UIImage(data: data)
-            gearImageView.isHidden = true
-        }
     }
     
     private func animateGear() {
@@ -41,7 +36,15 @@ final class ViewController: UIViewController {
         
     @IBAction func downloadButtonAction(_ sender: UIButton) {
         gearImageView.isHidden = false
-        self.getImage(from: self.imageURL)
+        mainImageView.image = nil
+        queue.async {
+            if let data = try? Data(contentsOf: self.imageURL) {
+                DispatchQueue.main.async {
+                    self.mainImageView.image = UIImage(data: data)
+                    self.gearImageView.isHidden = true
+                }
+            }
+        }
     }
 }
 
