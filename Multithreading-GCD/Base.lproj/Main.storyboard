@@ -37,30 +37,26 @@
                                     <action selector="downloadButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f47-zM-5ju"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rWS-Vp-GqW">
-                                <rect key="frame" x="147" y="158" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="BFw-Pv-gtl"/>
-                                    <constraint firstAttribute="width" constant="120" id="LfR-RK-imZ"/>
-                                </constraints>
-                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="jly-y1-bsv">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="XU0-F3-J2j" firstAttribute="top" secondItem="rWS-Vp-GqW" secondAttribute="bottom" constant="40" id="BQU-hW-euP"/>
-                            <constraint firstItem="rWS-Vp-GqW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IIb-qJ-VfT"/>
+                            <constraint firstItem="jly-y1-bsv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3W1-gs-snx"/>
                             <constraint firstItem="hOP-b7-Qv2" firstAttribute="top" secondItem="XU0-F3-J2j" secondAttribute="bottom" constant="100" id="P1U-ni-Muv"/>
                             <constraint firstItem="XU0-F3-J2j" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="VwR-ob-x2f"/>
                             <constraint firstItem="XU0-F3-J2j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="biz-ef-N9k"/>
+                            <constraint firstItem="jly-y1-bsv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cgh-eA-viA"/>
                             <constraint firstItem="hOP-b7-Qv2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="pqa-mH-MQG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hOP-b7-Qv2" secondAttribute="trailing" constant="100" id="tsl-WT-qdl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="GetImageApp" id="XT8-TN-6eC"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="jly-y1-bsv" id="7b3-8p-BbB"/>
                         <outlet property="downloadButton" destination="hOP-b7-Qv2" id="o5z-Dr-Idk"/>
-                        <outlet property="gearImageView" destination="rWS-Vp-GqW" id="ZDz-Xx-MNd"/>
                         <outlet property="mainImageView" destination="XU0-F3-J2j" id="1RE-S5-fcH"/>
                     </connections>
                 </viewController>
